@@ -14,7 +14,7 @@ var girar = 0.0;
 
 // Create a client instance
 //client = new Paho.MQTT.Client("177.99.211.82", 30076, "clientId");
-client = new Paho.MQTT.Client("iot.eclipse.org", 443, new Date());
+client = new Paho.MQTT.Client("iot.eclipse.org", 443, new Date().toString());
 
 
 
