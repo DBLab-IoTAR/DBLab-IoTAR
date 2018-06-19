@@ -16,7 +16,7 @@ var girar = 0.0;
 //client = new Paho.MQTT.Client("177.99.211.82", 30076, "clientId");
 client = new Paho.MQTT.Client("iot.eclipse.org", 443, new Date());
 
-console.log(new Date())
+
 
 // set callback handlers
 client.onConnectionLost = onConnectionLost;
@@ -34,7 +34,7 @@ client.connect(options);
 // called when the client connects
 function onConnect() {
   client.subscribe("dblab/hands-on/mqtt/display");
-  console.log("ugikgkigk")
+  console.log("data   ", new Date());
 }
 
 // called when the client loses its connection
