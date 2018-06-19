@@ -5,6 +5,7 @@ var gotas;
 var logo;
 var info_umidade;
 var info_distancia;
+var info_distancia2;
 var info_temperatura;
 
 var girar = 0.0;
@@ -58,7 +59,8 @@ function onMessageArrived(message) {
   }else if((message[0] + message[1] + message[2] + message[3]) == "Dist"){
     message = message.split('Dist: ').join('');
     message = message.split('mm').join('');    
-    info_distancia.setAttribute('value', "" + message);
+    info_distancia.setAttribute('value', "" + message + "mm");
+    info_distancia2.setAttribute('value', "" + message + "mm");
     console.log(message);    
     console.log("distancia");
   }else{
@@ -79,6 +81,7 @@ function setup() {
   info_umidade= document.getElementById('umidade');
 
   info_distancia= document.getElementById('distancia');
+  info_distancia2= document.getElementById('distancia2');
 
   gotas = document.getElementById('#drops');
 
