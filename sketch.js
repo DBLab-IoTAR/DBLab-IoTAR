@@ -4,15 +4,19 @@ var data;
 var gotas;
 var logo;
 var info_umidade;
+var info_umidade2;
 var info_distancia;
 var info_distancia2;
 var info_temperatura;
+var info_temperatura2;
 
 var girar = 0.0;
 
 // Create a client instance
 //client = new Paho.MQTT.Client("177.99.211.82", 30076, "clientId");
-client = new Paho.MQTT.Client("iot.eclipse.org", 443, "clientId");
+client = new Paho.MQTT.Client("iot.eclipse.org", 443, new Date());
+
+console.log(new Date())
 
 // set callback handlers
 client.onConnectionLost = onConnectionLost;
@@ -49,11 +53,13 @@ function onMessageArrived(message) {
     message = message.split('%').join('');
     console.log(message);        
     info_umidade.setAttribute('value', "" + message + "%");
+    info_umidade2.setAttribute('value', "" + message + "%");
     console.log("umidade");
   }else if(message[0] == "T"){
     message = message.split('T: ').join('');
     message = message.split('C').join('');
     info_temperatura.setAttribute('value', "" + message +"C");
+    info_temperatura2.setAttribute('value', "" + message +"C");
     console.log(message);    
     console.log("temperatura");
   }else if((message[0] + message[1] + message[2] + message[3]) == "Dist"){
@@ -77,8 +83,10 @@ function setup() {
   logo = loadImage("../addons/LOGO_DBLAB.png");
 
   info_temperatura = document.getElementById('temperatura');
+  info_temperatura2 = document.getElementById('temperatura2');
 
   info_umidade= document.getElementById('umidade');
+  info_umidade2= document.getElementById('umidade2');
 
   info_distancia= document.getElementById('distancia');
   info_distancia2= document.getElementById('distancia2');
