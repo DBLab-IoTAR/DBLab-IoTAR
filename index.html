@@ -3,39 +3,39 @@
   <head >
   </head>
   <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
-  <script src="./addons/aframe.min.js"></script>
-  <script src="./addons/aframe-ar.js"></script>
-  <script src="./addons/mqttws31.js" type="text/javascript"></script>
-  <script src="./addons/p5.min.js"></script>
-  <script src="./addons/p5.dom.min.js"></script>
-  <script src="./addons/p5.sound.min.js"></script>
-  <script src="sketch.js"></script>
+  <script src="../addons/aframe.min.js"></script>
+  <script src="../addons/aframe-ar.js"></script>
+  <script src="../addons/mqttws31.js" type="text/javascript"></script>
+  <script src="../addons/p5.min.js"></script>
+  <script src="../addons/p5.dom.min.js"></script>
+  <script src="../addons/p5.sound.min.js"></script>
+  <script src="./sketch.js"></script>
   <body style='margin : 0px; overflow: hidden;'>
     <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;'>
       <a-light id="luz" type: "directional" color: "white" position="1 1 0.5" intensity: "1.0" decay: "1.0"></a-light>
       <a-assets>
-        <a-asset-item id="sol-obj" src="./addons/sun.obj"></a-asset-item>
-        <a-asset-item id="sol-mtl" src="./addons/sun.mtl"></a-asset-item>
-        <a-asset-item id="drops-obj" src="./addons/model.obj"></a-asset-item>
-        <a-asset-item id="drops-mtl" src="./addons/materials.mtl"></a-asset-item>
-        <img id="transpImage" src="./addons/baseAR.png">
-        <img id="humidityImage" src="./addons/humidity.png">
-        <img id="temperatureImage" src="./addons/thermometer.png">
-        <img id="distanceImage" src="./addons/radar.png">
+        <a-asset-item id="sol-obj" src="../addons/sun.obj"></a-asset-item>
+        <a-asset-item id="sol-mtl" src="../addons/sun.mtl"></a-asset-item>
+        <a-asset-item id="drops-obj" src="../addons/model.obj"></a-asset-item>
+        <a-asset-item id="drops-mtl" src="../addons/materials.mtl"></a-asset-item>
+        <img id="transpImage" src="../addons/baseAR.png">
+        <img id="humidityImage" src="../addons/humidity.png">
+        <img id="temperatureImage" src="../addons/thermometer.png">
+        <img id="distanceImage" src="../addons/radar.png">
       </a-assets>  
-      <a-marker preset='custom' type='pattern' url='./addons/qr1.patt'>
+      <a-marker preset='custom' type='pattern' url='../addons/qr1.patt'>
         <a-image  rotation="-45 0 0" width="1.5px" height="2.1px" position="0.0 2.0 1.0" src="#transpImage"></a-image>
         <a-text id="temperatura" value="00:00" position="0.2 2.35 0.75" width="6px" color="#006DF0" align="center" rotation="-45 0 0" text="font:  https://cdn.aframe.io/fonts/Exo2Bold.fnt"></a-text>
         <a-text id="umidade" value="00:00" position="0.2 2.0 1.1" width="6px" color="#006DF0" align="center" rotation="-45 0 0" text="font:  https://cdn.aframe.io/fonts/Exo2Bold.fnt"></a-text>
         <a-image  rotation="-45 0 0" width="0.3px" height="0.3px" position="-0.4 2.3 0.8" src="#temperatureImage"></a-image>
         <a-image  rotation="-45 0 0" width="0.3px" height="0.3px" position="-0.4 2.1 1.2" src="#humidityImage"></a-image>
       </a-marker>
-      <a-marker preset='custom' type='pattern' url='./addons/qr2.patt'>
+      <a-marker preset='custom' type='pattern' url='../addons/qr2.patt'>
         <a-image  rotation="-45 0 0" width="1.5px" height="2.1px" position="0.0 2.0 1.0" src="#transpImage"></a-image>
         <a-text id="distancia" value="00:00" position="0.2 2.35 0.75" width="6px" color="#006DF0" align="center" rotation="-45 0 0" text="font:  https://cdn.aframe.io/fonts/Exo2Bold.fnt"></a-text>
         <a-image  rotation="-45 0 0" width="0.3px" height="0.3px" position="-0.4 2.3 0.8" src="#distanceImage"></a-image>
       </a-marker>
-      <a-marker preset='custom' type='pattern' url='./addons/qr3.patt'>        
+      <a-marker preset='custom' type='pattern' url='../addons/qr3.patt'>        
         <a-image  rotation="-45 0 0" width="1.5px" height="2.1px" position="0.0 1.9 1.1" src="#transpImage"></a-image>
         <a-text id="temperatura" value="00:00" position="0.2 2.35 0.75" width="6px" color="#006DF0" align="center" rotation="-45 0 0" text="font:  https://cdn.aframe.io/fonts/Exo2Bold.fnt"></a-text>
         <a-text id="umidade" value="00:00" position="0.2 2.0 1.1" width="6px" color="#006DF0" align="center" rotation="-45 0 0" text="font:  https://cdn.aframe.io/fonts/Exo2Bold.fnt"></a-text>
