@@ -58,7 +58,7 @@ function onMessageArrived(message) {
   }else if((message[0] + message[1] + message[2] + message[3]) == "Dist"){
     message = message.split('Dist: ').join('');
     message = message.split('mm').join('');    
-    info_distancia.setAttribute('value', "" + message +"mm");
+    info_distancia.setAttribute('value', "" + message);
     console.log(message);    
     console.log("distancia");
   }else{
