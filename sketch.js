@@ -9,7 +9,8 @@ var info_distancia;
 var info_distancia2;
 var info_temperatura;
 var info_temperatura2;
-
+var button;
+var button2;
 var girar = 0.0;
 
 // Create a client instance
@@ -79,6 +80,27 @@ function onMessageArrived(message) {
 }
 
 
+window.onload = function() {  
+  myFunction();
+};
+
+var myVar;
+
+function myFunction() {
+    myVar = setTimeout(alertFunc, 100);    
+}
+
+function alertFunc() {
+  if(document.querySelector("a-marker").object3D.visible == true){
+    button.show();
+    button2.show();
+  }else{
+    button.hide();
+    button2.hide();
+  }
+  myFunction();
+}
+
 function setup() {
   canvas = createCanvas(windowWidth,windowHeight);
   canvas.position(0, 0);
@@ -102,9 +124,11 @@ function setup() {
 
   button = createButton('Ligar');  
   button.mousePressed(onLight);
+  button.hide();
 
   button2 = createButton('Desligar');  
   button2.mousePressed(offLight);
+  button2.hide();
 
   textAlign(CENTER);
   textSize(50);
