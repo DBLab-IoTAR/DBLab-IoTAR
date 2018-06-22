@@ -57,6 +57,7 @@ function offLight(){
 // called when a message arrives
 function onMessageArrived(message) {
   message = message.payloadString.toString();
+  console.log("MENSAGEM       ", message); 
   if(message[0] == "H"){    
     message = message.split('H: ').join('');
     message = message.split('%').join('');
