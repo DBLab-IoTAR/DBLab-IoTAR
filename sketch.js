@@ -102,8 +102,8 @@ function alertFunc() {
 }
 
 
-let width_button = "200px";
-let height_button = "50px";
+let width_button = "500px";
+let height_button = "150px";
 function setup() {
   canvas = createCanvas(windowWidth,windowHeight);
   canvas.position(0, 0);
@@ -140,12 +140,12 @@ function setup() {
   button2.hide();
 
   textAlign(CENTER);
-  textSize(100);
+  textSize(50);
 }
 
 function draw() {
-  button.position((windowWidth/2)-100, windowHeight-100);
-  button2.position((windowWidth/2)+100, windowHeight-100);
+  button.position((windowWidth/2)-500, windowHeight-200);
+  button2.position((windowWidth/2)+050, windowHeight-200);
   //canvas.resize(windowWidth,windowHeight);
 }
 
