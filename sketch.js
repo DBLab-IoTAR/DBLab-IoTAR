@@ -101,6 +101,9 @@ function alertFunc() {
   myFunction();
 }
 
+
+let width_button = "200px";
+let height_button = "50px";
 function setup() {
   canvas = createCanvas(windowWidth,windowHeight);
   canvas.position(0, 0);
@@ -122,21 +125,27 @@ function setup() {
 
   girar = girar + 0.1;
 
+  
+
   button = createButton('Ligar');  
   button.mousePressed(onLight);
+  button.style('width', width_button);
+  button.style('height', height_button);
   button.hide();
 
   button2 = createButton('Desligar');  
   button2.mousePressed(offLight);
+  button2.style('width', width_button);
+  button2.style('height', height_button);
   button2.hide();
 
   textAlign(CENTER);
-  textSize(50);
+  textSize(100);
 }
 
 function draw() {
-  button.position((windowWidth/2)-25, windowHeight-100);
-  button2.position((windowWidth/2)+25, windowHeight-100);
+  button.position((windowWidth/2)-100, windowHeight-100);
+  button2.position((windowWidth/2)+100, windowHeight-100);
   //canvas.resize(windowWidth,windowHeight);
 }
 
