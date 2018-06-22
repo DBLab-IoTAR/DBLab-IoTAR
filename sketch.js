@@ -4,11 +4,8 @@ var data;
 var gotas;
 var logo;
 var info_umidade;
-var info_umidade2;
 var info_distancia;
-var info_distancia2;
 var info_temperatura;
-var info_temperatura2;
 var button;
 var button2;
 var girar = 0.0;
@@ -64,17 +61,14 @@ function onMessageArrived(message) {
     message = message.split('H: ').join('');
     message = message.split('%').join('');
     info_umidade.setAttribute('value', "" + message + "%");
-    info_umidade2.setAttribute('value', "" + message + "%");
   }else if(message[0] == "T"){
     message = message.split('T: ').join('');
     message = message.split('C').join('');
     info_temperatura.setAttribute('value', "" + message +"C");
-    info_temperatura2.setAttribute('value', "" + message +"C");
   }else if((message[0] + message[1] + message[2] + message[3]) == "Dist"){
     message = message.split('Dist: ').join('');
     message = message.split('mm').join('');    
     info_distancia.setAttribute('value', "" + message + "mm");
-    info_distancia2.setAttribute('value', "" + message + "mm");
   }else{
   }
 }
@@ -113,13 +107,10 @@ function setup() {
   logo = loadImage("../addons/LOGO_DBLAB.png");
 
   info_temperatura = document.getElementById('temperatura');
-  info_temperatura2 = document.getElementById('temperatura2');
 
   info_umidade= document.getElementById('umidade');
-  info_umidade2= document.getElementById('umidade2');
 
   info_distancia= document.getElementById('distancia');
-  info_distancia2= document.getElementById('distancia2');
 
   gotas = document.getElementById('#drops');
 
@@ -148,8 +139,10 @@ function draw() {
   button2.position((windowWidth/2), windowHeight-500);
   button.style('width', t);
   button.style('height', height_button);
+  button.style('font-size', '25px');
   button2.style('width', t);
   button2.style('height', height_button);
+  button2.style('font-size', '25px');
   //canvas.resize(windowWidth,windowHeight);
 }
 
