@@ -133,17 +133,16 @@ function setup() {
   textSize(50);
 }
 
-  
 function draw() {
   let t = ((windowWidth/2)-200).toString() + 'px';
   button.position((windowWidth/2) - (((windowWidth/2)-200)), windowHeight-500);
   button2.position((windowWidth/2), windowHeight-500);
   button.style('width', t);
   button.style('height', height_button);
-  button.style('font-size', '45px');
+  button.style('font-size', '65px');
   button2.style('width', t);
   button2.style('height', height_button);
-  button2.style('font-size', '45px');
+  button2.style('font-size', '65px');
   //canvas.resize(windowWidth,windowHeight);
 }
 
