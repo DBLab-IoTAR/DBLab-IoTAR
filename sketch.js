@@ -16,8 +16,6 @@ var girar = 0.0;
 //client = new Paho.MQTT.Client("177.99.211.82", 30076, "clientId");
 client = new Paho.MQTT.Client("iot.eclipse.org", 443, new Date().toString());
 
-
-
 // set callback handlers
 client.onConnectionLost = onConnectionLost;
 client.onMessageArrived = onMessageArrived;
@@ -44,43 +42,38 @@ function onConnectionLost(responseObject) {
   }
 }
 
-AFRAME.registerComponent('cursor-listener', {
-  init: function () {
-    var lastIndex = -1;
-    var COLORS = ['red', 'green', 'blue'];
-    this.el.addEventListener('click', function (evt) {
-      lastIndex = (lastIndex + 1) % COLORS.length;
-      this.setAttribute('material', 'color', COLORS[lastIndex]);
-      console.log('I was clicked at: ', evt.detail.intersection.point);
-    });
-  }
-});
+function onLight(){
+  let message = new Paho.MQTT.Message("on");
+  message.destinationName = "dblab/mqtt/light/switch";
+  client.send(message);
+}
+
+function offLight(){
+  let message = new Paho.MQTT.Message("off");
+  message.destinationName = "dblab/mqtt/light/switch";
+  client.send(message);
+}
+
+
 
 // called when a message arrives
 function onMessageArrived(message) {
   message = message.payloadString.toString();
-  console.log(message)
   if(message[0] == "H"){    
     message = message.split('H: ').join('');
     message = message.split('%').join('');
-    console.log(message);        
     info_umidade.setAttribute('value', "" + message + "%");
     info_umidade2.setAttribute('value', "" + message + "%");
-    console.log("umidade");
   }else if(message[0] == "T"){
     message = message.split('T: ').join('');
     message = message.split('C').join('');
     info_temperatura.setAttribute('value', "" + message +"C");
     info_temperatura2.setAttribute('value', "" + message +"C");
-    console.log(message);    
-    console.log("temperatura");
   }else if((message[0] + message[1] + message[2] + message[3]) == "Dist"){
     message = message.split('Dist: ').join('');
     message = message.split('mm').join('');    
     info_distancia.setAttribute('value', "" + message + "mm");
     info_distancia2.setAttribute('value', "" + message + "mm");
-    console.log(message);    
-    console.log("distancia");
   }else{
   }
 }
@@ -106,9 +99,20 @@ function setup() {
   gotas = document.getElementById('#drops');
 
   girar = girar + 0.1;
+
+  button = createButton('Ligar');  
+  button.mousePressed(onLight);
+
+  button2 = createButton('Desligar');  
+  button2.mousePressed(offLight);
+
+  textAlign(CENTER);
+  textSize(50);
 }
 
 function draw() {
-  canvas.resize(windowWidth,windowHeight);
+  button.position((windowWidth/2)-25, windowHeight-100);
+  button2.position((windowWidth/2)+25, windowHeight-100);
+  //canvas.resize(windowWidth,windowHeight);
 }
 
